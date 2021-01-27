@@ -37,8 +37,9 @@ apt-get -y install ffmpeg --fix-missing
 /opt/conda/bin/conda init bash
 /opt/conda/bin/conda update -y python
 /opt/conda/bin/conda install -y python=3.7.7
-python3 -m pip install --upgrade pip 
-python3 -m pip install --upgrade setuptools
+/opt/conda/bin/conda activate base
+pip3 install --upgrade pip 
+pip3 install --upgrade setuptools
 pip3 install numpy
 pip3 install matplotlib tqdm Pillow shapely opencv-python pandas scikit-learn imgaug imantics scipy scikit-image seaborn pandas
 pip3 install netCDF4
