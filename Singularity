@@ -2,10 +2,14 @@ Bootstrap: docker
 
 From: nvcr.io/nvidia/pytorch:20.09-py3
 
-EXPOSE 8888
-EXPOSE 6006
-EXPOSE 8003
+%environment
+#EXPOSE 8888
+#EXPOSE 6006
+#EXPOSE 8003
+export CPLUS_INCLUDE_PATH=/usr/include/gdal
+export C_INCLUDE_PATH=/usr/include/gdal
 
+%post
 
 apt-get -y update
 apt-get install -y software-properties-common
@@ -44,8 +48,6 @@ pip3 install earthnet
 #Install GDAL and python binding
 apt-get install -y gdal-bin
 apt-get install -y libgdal-dev
-export CPLUS_INCLUDE_PATH=/usr/include/gdal
-export C_INCLUDE_PATH=/usr/include/gdal
 ogrinfo --version
 
 #Add here the ogr version
